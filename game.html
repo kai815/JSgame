@@ -21,51 +21,59 @@
     const img = new Image()
     img.src = "https://cache-www.dragonquest.jp/hoshidora/assets_190310/narikirislime/pc/slime.png"
     //drawImage(x, y, width, height)
-    img.onload = () => ctx.drawImage(img, CANVAS_WIDTH_HALF - CHARACTER_SIZE_HALF, CANVAS_HEIGHT_HALF - CHARACTER_SIZE_HALF, CHARACTER_SIZE, CHARACTER_SIZE)
-    window.addEventListener("keydown", (e) => {
-      console.log(e)
-      ctx.clearRect(0,0,CANVAS_WIDTH,CANVAS_HEIGHT)
-      if (e.key === "ArrowLeft") {
-        CHARACTER_POS_X -= 10
-        ctx.drawImage(
-          img,
-          CHARACTER_POS_X,
-          CHARACTER_POS_Y,
-          CHARACTER_SIZE,
-          CHARACTER_SIZE
-        )
+    // img.onload = () => ctx.drawImage(img, CANVAS_WIDTH_HALF - CHARACTER_SIZE_HALF, CANVAS_HEIGHT_HALF - CHARACTER_SIZE_HALF, CHARACTER_SIZE, CHARACTER_SIZE)
+    // 自分でとりあえず作った
+    img.onload = () =>{
+      for (let i = -50; i <= 640; i += 50){
+        for (let n = -50; n <= 480; n += 50){
+          ctx.drawImage(img, i, n, CHARACTER_SIZE, CHARACTER_SIZE)
+        }
       }
-      if (e.key === "ArrowUp") {
-        CHARACTER_POS_Y -= 10
-        ctx.drawImage(
-          img,
-          CHARACTER_POS_X,
-          CHARACTER_POS_Y,
-          CHARACTER_SIZE,
-          CHARACTER_SIZE
-        )
-      }
-      if (e.key === "ArrowRight") {
-        CHARACTER_POS_X += 10
-        ctx.drawImage(
-          img,
-          CHARACTER_POS_X,
-          CHARACTER_POS_Y,
-          CHARACTER_SIZE,
-          CHARACTER_SIZE
-        )
-      }
-      if (e.key === "ArrowDown") {
-        CHARACTER_POS_Y += 10
-        ctx.drawImage(
-          img,
-          CHARACTER_POS_X,
-          CHARACTER_POS_Y,
-          CHARACTER_SIZE,
-          CHARACTER_SIZE
-        )
-      }
-    })
+    }
+    // window.addEventListener("keydown", (e) => {
+    //   console.log(e)
+    //   ctx.clearRect(0,0,CANVAS_WIDTH,CANVAS_HEIGHT)
+    //   if (e.key === "ArrowLeft") {
+    //     CHARACTER_POS_X -= 10
+    //     ctx.drawImage(
+    //       img,
+    //       CHARACTER_POS_X,
+    //       CHARACTER_POS_Y,
+    //       CHARACTER_SIZE,
+    //       CHARACTER_SIZE
+    //     )
+    //   }
+    //   if (e.key === "ArrowUp") {
+    //     CHARACTER_POS_Y -= 10
+    //     ctx.drawImage(
+    //       img,
+    //       CHARACTER_POS_X,
+    //       CHARACTER_POS_Y,
+    //       CHARACTER_SIZE,
+    //       CHARACTER_SIZE
+    //     )
+    //   }
+    //   if (e.key === "ArrowRight") {
+    //     CHARACTER_POS_X += 10
+    //     ctx.drawImage(
+    //       img,
+    //       CHARACTER_POS_X,
+    //       CHARACTER_POS_Y,
+    //       CHARACTER_SIZE,
+    //       CHARACTER_SIZE
+    //     )
+    //   }
+    //   if (e.key === "ArrowDown") {
+    //     CHARACTER_POS_Y += 10
+    //     ctx.drawImage(
+    //       img,
+    //       CHARACTER_POS_X,
+    //       CHARACTER_POS_Y,
+    //       CHARACTER_SIZE,
+    //       CHARACTER_SIZE
+    //     )
+    //   }
+    // })
   </script>
 </body>
 </html>
