@@ -8,7 +8,64 @@
 <body>
   <canvas id="canvas" width="640" height="480" style="background-color: black;"></canvas>
   <script>
-    const ctx = document.getElementById("canvas")
+    const CANVAS_WIDTH = 640
+    const CANVAS_WIDTH_HALF = 320 //画面の半分の広さ
+    const CANVAS_HEIGHT = 480
+    const CANVAS_HEIGHT_HALF = 240 //画面の半分の高さ
+    const CHARACTER_SIZE = 100
+    const CHARACTER_SIZE_HALF = 50
+    let CHARACTER_POS_X = CANVAS_WIDTH_HALF - CHARACTER_SIZE_HALF
+    let CHARACTER_POS_Y = CANVAS_HEIGHT_HALF - CHARACTER_SIZE_HALF
+    const canvas = document.getElementById("canvas")
+    const ctx = canvas.getContext("2d")
+    const img = new Image()
+    img.src = "https://cache-www.dragonquest.jp/hoshidora/assets_190310/narikirislime/pc/slime.png"
+    //drawImage(x, y, width, height)
+    img.onload = () => ctx.drawImage(img, CANVAS_WIDTH_HALF - CHARACTER_SIZE_HALF, CANVAS_HEIGHT_HALF - CHARACTER_SIZE_HALF, CHARACTER_SIZE, CHARACTER_SIZE)
+    window.addEventListener("keydown", (e) => {
+      console.log(e)
+      ctx.clearRect(0,0,CANVAS_WIDTH,CANVAS_HEIGHT)
+      if (e.key === "ArrowLeft") {
+        CHARACTER_POS_X -= 10
+        ctx.drawImage(
+          img,
+          CHARACTER_POS_X,
+          CHARACTER_POS_Y,
+          CHARACTER_SIZE,
+          CHARACTER_SIZE
+        )
+      }
+      if (e.key === "ArrowUp") {
+        CHARACTER_POS_Y -= 10
+        ctx.drawImage(
+          img,
+          CHARACTER_POS_X,
+          CHARACTER_POS_Y,
+          CHARACTER_SIZE,
+          CHARACTER_SIZE
+        )
+      }
+      if (e.key === "ArrowRight") {
+        CHARACTER_POS_X += 10
+        ctx.drawImage(
+          img,
+          CHARACTER_POS_X,
+          CHARACTER_POS_Y,
+          CHARACTER_SIZE,
+          CHARACTER_SIZE
+        )
+      }
+      if (e.key === "ArrowDown") {
+        CHARACTER_POS_Y += 10
+        ctx.drawImage(
+          img,
+          CHARACTER_POS_X,
+          CHARACTER_POS_Y,
+          CHARACTER_SIZE,
+          CHARACTER_SIZE
+        )
+      }
+    })
   </script>
 </body>
 </html>
